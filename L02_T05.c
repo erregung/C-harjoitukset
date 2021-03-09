@@ -43,7 +43,7 @@ int main(void) {
                 break;
             }
             printf("\nMerkkijono: ");
-            for (int i = 0; i <= pituus; i++) {
+            for (int i = 0; i < pituus; i++) {
                 printf("%c", merkkijono[i]);
             }
 			
