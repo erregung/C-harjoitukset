@@ -19,9 +19,9 @@ void tallenna() {
 	char muisti[50];
 	
 	tiedosto = fopen("tiedosto.txt", "a");
-	printf("\nAnna tallennettava nimi: ");
+	printf("\nAnna tallennettava nimi: \n");
 	scanf("%s", muisti);
-	fprintf(tiedosto, "%s\n", muisti);  
+	fprintf(tiedosto, "%s", muisti);  
 
 	fclose(tiedosto); 
 }
@@ -29,9 +29,14 @@ void tallenna() {
 int main(void) {
 	printf("Ohjelma tallentaa nimiä tiedostoon.\n");
 	
-    int flag = 1;
+    //int flag = 1;
+/*
+    FILE *tiedosto;
+	
+	tiedosto = fopen("tiedosto.txt", "w");
+    fclose(tiedosto);*/
 
-    while (flag) {
+   // while (flag) {
 
         printf("\n1) Tallenna uusi nimi\n2) Tulosta nimet\n0) Lopeta\nValitse: ");
         int valinta;
@@ -42,16 +47,16 @@ int main(void) {
                 tallenna();
                 printf("Nimi on tallennettu tiedostoon.\n");
         }
-  
+               // break;
         else if (valinta == 2) {
                 tulosta();
         }
         else if (valinta == 0) {	
                  return 0;}
-            else {
+        else {
                 printf("\nTuntematon komento\n");
         }
-    }
+   // }
 	return 0;
 	
 }
