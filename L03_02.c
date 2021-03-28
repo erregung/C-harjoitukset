@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void tulosta() {
 	char muisti[50]; 
 	FILE *tiedosto;     
-	tiedosto = fopen("tiedosto.txt", "r");
+	tiedosto = fopen("nimet.txt", "r");
 	printf("\nTiedostossa olevat nimet:\n"); 
 	
 	while (fgets(muisti, 50, tiedosto) != NULL) {         
@@ -17,8 +18,8 @@ void tulosta() {
 void tallenna() {
 	FILE *tiedosto;
 	char muisti[50];
-	
-	tiedosto = fopen("tiedosto.txt", "a");
+	if (tiedosto == NULL) { tiedosto = fopen("nimet.txt", "w");}
+	tiedosto = fopen("nimet.txt", "a");
 	printf("\nAnna tallennettava nimi: ");
 	scanf("%s", muisti);
 	fprintf(tiedosto, "%s\n", muisti);  
@@ -46,8 +47,9 @@ int main(void) {
         else if (valinta == 2) {
                 tulosta();
         }
-        else if (valinta == 0) {	
-                 return 0;}
+        else if (valinta == 0) {
+				printf("\n");
+                return 0;}
             else {
                 printf("\nTuntematon komento\n");
         }
